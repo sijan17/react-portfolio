@@ -26,17 +26,14 @@
 .button, .button1, .button2 {
   background: linear-gradient(to left, #1e293b 50%, #502061 50%) right;
   background-size: 200%;
-  transition: 0.5s ease-out;
 }
 .button1{
   background: linear-gradient(to left, #1e293b 50%, #009900 50%) right;
   background-size: 200%;
-  transition: 0.5s ease-out;
 }
 .button2{
   background: linear-gradient(to left, #1e293b 50%, #000099 50%) right;
   background-size: 200%;
-  transition: 0.5s ease-out;
 }
 
 

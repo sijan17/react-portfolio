@@ -21,3 +21,36 @@ canvas {
 	z-index: 1;
 }
 
+
+.slide-right {
+  animation-name: slideRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+
+/* inViewport */
+
+[data-inviewport="scale-in"] { 
+  transition: 2s;
+  transform: scale(0.1);
+}
+[data-inviewport="scale-in"].is-inViewport { 
+  transform: scale(1);
+}
+
+[data-inviewport="fade-rotate"] { 
+  transition: 2s;
+  opacity: 0;
+}
+[data-inviewport="fade-rotate"].is-inViewport { 
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+[data-inviewport="slide-right"] { 
+	transition: 2s;
+  transform: translateX(100px);
+}

@@ -1,3 +1,4 @@
+import {useState, useEffect, useRef} from "react"
 import Title from "../Title";
 import Layout from "../Layout";
 import { FiDownload } from "react-icons/fi";
@@ -16,13 +17,40 @@ import {
   SiThreedotjs,
 } from "react-icons/si";
 export default function About() {
+	const animatedDivRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Change this value as per your requirement
+    );
+
+    if (animatedDivRef.current) {
+      observer.observe(animatedDivRef.current);
+    }
+
+    return () => {
+      if (animatedDivRef.current) {
+        observer.unobserve(animatedDivRef.current);
+      }
+    };
+  }, []);
+
+
+
 	return (
 		<Layout id="about">
 			<Title title=" <About-Me/>" />
-			<div  className="flex  flex-col w-full  gap-8  md:flex-row md:gap-4 overflow-hidden ">
-				<div className="title  flex flex-col gap-4 md:gap-8 md:text-[1.2em]  duration-500 md:w-[60%]">
-					<div className="hover:-translate-y-2 duration-500">
-						<span className="text-[#d946ef] ">Coding </span> is fun. Isn't it ? 😉
+			<div  className="flex  flex-col w-full  gap-8  md:flex-row md:gap-4 overflow-hidden " >
+				<div  ref={animatedDivRef}
+      className={`title  flex flex-col gap-4 md:gap-8 text-[1.1em] md:text-[1.4em]  duration-500 md:w-[60%] duration-[2s] ${
+        isVisible ? "opacity-1 scale-1" : "opacity-0 scale-[0.8]"
+      }`} >
+					<div className={` hover:-translate-y-2 duration-500`} >
+						<span className="text-[#d946ef] " >Coding </span> is fun. Isn't it ? 😉
 						<br />
   
 					</div>
@@ -62,7 +90,7 @@ export default function About() {
         </a>
       </div>
 				</div>
-				<div className="hover:rotate-[-20deg] min-h-[333px] bg-cover    md:min-w-[40%] flex items-center justify-around duration-500  bg-[url('/assets/img/code.png')]"></div>
+				<div className={`hover:rotate-[-20deg] min-h-[333px] bg-cover    md:min-w-[40%] flex items-center justify-around duration-[1s]  bg-[url('/assets/img/code.png')] ${isVisible ? "scale-[1]" : "scale-[0.8]"}`}></div>
 			</div>
 		</Layout>
 	);

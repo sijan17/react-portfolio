@@ -13,15 +13,15 @@ const Navbar = () => {
     return (
         <div className="flex items-center justify-between sticky w-full sticky pt-4 bg-[#1e293b] top-0 z-[1000000000] ">
             <Logo />
-            <div className={`md:hidden hamburger`}>
+            <div className={` md:hidden  flex hamburger`}>
                 <RxHamburgerMenu
                     onClick={() => {
                         setIsMenuHidden(false);
                     }}
                     className={` ${
-                        !isMenuHidden ? "hidden" : ""
-                    } h-8 w-8 transform transition-transform duration-500 ease-in-out ${
-                        !isMenuHidden ? "rotate-90" : "rotate-0"
+                        !isMenuHidden ? "opacity-0 " : "opacity-1 z-10"
+                    }  left-0 h-8 w-8 transform transition-transform duration-500 ease-in-out ${
+                        !isMenuHidden ? "-rotate-90" : "rotate-0"
                     } cursor-pointer text-[#a855f7]`}
                 />
                 <RxCross1
@@ -29,8 +29,8 @@ const Navbar = () => {
                         setIsMenuHidden(true);
                     }}
                     className={` ${
-                        isMenuHidden ? "hidden" : ""
-                    } h-8 w-8 transform transition-transform duration-500 ease-in-out ${
+                        isMenuHidden ? "opacity-0" : "opacity-1"
+                    } -ml-8 left-0 h-8 w-8 transform transition-transform duration-500 ease-in-out ${
                         isMenuHidden ? "rotate-90" : "rotate-0"
                     } cursor-pointer text-[#a855f7]`}
                 />

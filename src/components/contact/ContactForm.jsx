@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 
-const Contact = () => {
+const Contact = ({isVisible}) => {
   const [formData, setFormData] = useState({ name: "", message: "" });
   const [messageSent, setMessageSent] = useState(false);
   const [messageFailed, setMessageFailed] = useState(false);
@@ -64,7 +64,7 @@ const Contact = () => {
     setMessageFailed(false);
   }, []);
   return (
-    <div className="flex flex-col w-full md:w-1/2 items-center justify-center gap-4 ">
+    <div className={` ${isVisible ? "opacity-1 translate-x-0" : "opacity-0 translate-x-[-100%]"} duration-[2s] flex flex-col w-full md:w-1/2 items-center justify-center gap-4 `}>
       <div className=" backdrop-blur-lg w-full  rounded-[1em]">
         <div className="text-center w-full  md:p-2 rounded-[0.2rem] py-4 flex flex-col gap-8">
           <form

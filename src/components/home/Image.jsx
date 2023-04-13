@@ -1,11 +1,11 @@
 import React from "react";
-import Experience from "../three/Experience";
-import { Canvas, useFrame } from "@react-three/fiber";
+// import Experience from "../three/Experience";
+// import { Canvas, useFrame } from "@react-three/fiber";
 
-const Image = () => {
+const Image = ({isVisible}) => {
 	return (
-		<div className="w-full md:w-1/2 lg:h-[70vh]  md:h-[50vh] h-[30vh]">
-			<Canvas
+		<div className={`${isVisible ? "scale-[1] " : "scale-[0.8] "} w-full h-full  md:w-1/2 lg:h-[70vh]  md:h-[50vh]   hover:scale-[1.1] duration-[2s] `}>
+			{/*<Canvas
 				camera={{
 					fov: 45,
 					near: 0.1,
@@ -14,7 +14,9 @@ const Image = () => {
 				}}
 			>
 				<Experience />
-			</Canvas>
+			</Canvas>*/}
+
+		<img src="/assets/img/work.png" />
 		</div>
 	);
 };
