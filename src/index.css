@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Raleway&family=Rubik&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+canvas {
+	touch-action: none;
+}
+
+.htmlScreen iframe {
+	height: 670px;
+	width: 1024px;
+	border: none;
+	border-radius: 20px;
+	background-color: #000000;
+	z-index: 1;
+}
+
