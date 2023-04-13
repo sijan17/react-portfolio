@@ -9,7 +9,7 @@ export default function Screen() {
             position={[0, 1.56, -1.4]}
             rotation-x={-0.256}
         >
-            <iframe src="http://localhost:5173" />
+            <iframe src="https://sijan-paudel.com.np" />
         </Html>
     );
 }

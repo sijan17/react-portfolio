@@ -14,7 +14,7 @@ export default function ComputerModel(props) {
                 rotation={[-0.1, Math.PI, 0]}
                 position={[0, 0.55, -1.15]}
             />
-            <primitive object={scene} position-y={-1.2}>
+            <primitive object={scene } position-y={-1.2}>
                 <Screen />
             </primitive>
             <Text
