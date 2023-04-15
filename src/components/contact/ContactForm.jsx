@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {  useEffect, useRef, useState } from "react";
 import {
   AiOutlineGithub,
   AiOutlineLinkedin,
@@ -6,7 +6,29 @@ import {
 } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 
-const Contact = ({isVisible}) => {
+const Contact = () => {
+  const animatedDivRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Change this value as per your requirement
+    );
+
+    if (animatedDivRef.current) {
+      observer.observe(animatedDivRef.current);
+    }
+
+    return () => {
+      if (animatedDivRef.current) {
+        observer.unobserve(animatedDivRef.current);
+      }
+    };
+  }, []);
+
   const [formData, setFormData] = useState({ name: "", message: "" });
   const [messageSent, setMessageSent] = useState(false);
   const [messageFailed, setMessageFailed] = useState(false);
@@ -64,7 +86,7 @@ const Contact = ({isVisible}) => {
     setMessageFailed(false);
   }, []);
   return (
-    <div className={` ${isVisible ? "opacity-1 translate-x-0" : "opacity-0 translate-x-[-100%]"} duration-[2s] flex flex-col w-full md:w-1/2 items-center justify-center gap-4 `}>
+    <div ref={animatedDivRef} className={` ${isVisible ? "opacity-1 translate-x-0 scale-[1]" : "opacity-0 scale-[0.8] "} duration-[2s] flex flex-col w-full md:w-1/2 items-center justify-center gap-4 `}>
       <div className=" backdrop-blur-lg w-full  rounded-[1em]">
         <div className="text-center w-full  md:p-2 rounded-[0.2rem] py-4 flex flex-col gap-8">
           <form
@@ -109,26 +131,28 @@ const Contact = ({isVisible}) => {
           <div className="  flex flex-col items-center justify-center p-4 gap-4 ">
             <div className=" flex items-center justify-center ">
               <div className=" flex items-center gap-4">
+              <a href="https://twitter.com/s1j4n" >
                 <AiOutlineTwitter
-                  onClick={() => handleRedirect("https://twitter.com/s1j4n")}
                   className="h-8 w-8 md:cursor-pointer hover:text-[#00acee] hover:scale-[1.4] ease-in-out duration-500 "
                 />
-
+                </a>
+                <a href="https://linkedin.com/in/sijan1" >
                 <AiOutlineLinkedin
-                  onClick={() =>
-                    handleRedirect("https://linkedin.com/in/sijan1")
-                  }
+                 
                   className="h-8 w-8 md:cursor-pointer hover:text-[#0072b1] hover:scale-[1.4] ease-in-out duration-500 "
                 />
+                </a>
+                 <a href="https://github.com/sijan17" >
                 <AiOutlineGithub
                   onClick={() => handleRedirect("https://github.com/sijan17")}
                   className="h-8 w-8 md:cursor-pointer hover:text-[#171515] hover:bg-[#4078c0] rounded-full hover:scale-[1.2] ease-in-out duration-500 "
                 />
+                </a>
                 {/* <AiOutlineMail  className="h-8 w-8 md:cursor-pointer hover:text-green-700 ease-in-out duration-300 " /> */}
               </div>
             </div>
             <div className="text-sm">
-              <div className="relative">
+              <div className="">
                 Feel free to{" "}
                 <span
                   className="text-blue-600 cursor-pointer"
@@ -136,11 +160,11 @@ const Contact = ({isVisible}) => {
                 >
                   connect
                 </span>
-                <span
-                  className={`${connectHidden ? "hidden " : "text-red-500 "}`}
+                <div
+                  className={`overflow-hidden text-center text-xl duration-[2s] ${connectHidden ? "opacity-0 scale-[0.8]" : "opacity-1 scale-[1] "}`}
                 >
-                  {" <3"}
-                </span>
+                  ❤️
+                </div>
               </div>
             </div>
           </div>

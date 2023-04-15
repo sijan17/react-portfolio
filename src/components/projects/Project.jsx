@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import "./project.css";
+import Animation from "../../helpers/Animation"
 
 export default function Project({data}) {
 	const [waveBorder, setWaveBorder] = useState("border-blue-500");
@@ -21,32 +22,12 @@ export default function Project({data}) {
 		return () => clearInterval(interval);
 	}, []);
 
-	const animatedDivRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.5 } // Change this value as per your requirement
-    );
-
-    if (animatedDivRef.current) {
-      observer.observe(animatedDivRef.current);
-    }
-
-    return () => {
-      if (animatedDivRef.current) {
-        observer.unobserve(animatedDivRef.current);
-      }
-    };
-  }, []);
+	
 
 	return (
+		<Animation before="scale-[0.8] opacity-0 " after="scale-[1] opacity-1" duration="1s">
 		<div
-		ref={animatedDivRef}
-			className={` ${isVisible? "scale-[1] opacity-1" : "scale-[0.8] opacity-0 "} ${
+			className={`  ${
 				isHovered ? waveBorder : "  "
 			} button transition-all duration-[1s] ease-in-out flex flex-col md:p-2 border-2 border-[#0f172a] rounded-lg gap-2 cursor-pointer  `}
 			onMouseOver={() => setIsHovered(true)}
@@ -87,5 +68,6 @@ export default function Project({data}) {
 				
 			</div>
 		</div>
+		</Animation>
 	);
 }

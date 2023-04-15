@@ -4,9 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,body {
     scroll-behavior: smooth;
 }
+
 
 canvas {
 	touch-action: none;
