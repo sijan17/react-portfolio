@@ -26,6 +26,15 @@ export const projectData = [
       ]
     },
     {
+      title: "Terminal",
+      desc: "Terminal Portfolio Website.",
+      hostURL: "https://terminal.sijan-paudel.com.np",
+      gitURL: "https://github.com/sijan17/terminal-portfolio.git",
+      cover: "terminal-cover.png",
+      images : [
+      ]
+    },
+    {
       title: "CMS",
       desc: "College Management System.",
       hostURL: "https://cms-swastik.rf.gs",
