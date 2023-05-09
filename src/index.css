@@ -1,27 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Raleway&family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Raleway&family=Rubik&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,body {
-    scroll-behavior: smooth;
+html,
+body {
+  scroll-behavior: smooth;
 }
 
+#root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
 canvas {
-	touch-action: none;
+  touch-action: none;
 }
 
 .htmlScreen iframe {
-	height: 670px;
-	width: 1024px;
-	border: none;
-	border-radius: 20px;
-	background-color: #000000;
-	z-index: 1;
+  height: 670px;
+  width: 1024px;
+  border: none;
+  border-radius: 20px;
+  background-color: #000000;
+  z-index: 1;
 }
-
 
 .slide-right {
   animation-name: slideRight;
@@ -30,28 +34,26 @@ canvas {
   animation-fill-mode: forwards;
 }
 
-
-
 /* inViewport */
 
-[data-inviewport="scale-in"] { 
+[data-inviewport="scale-in"] {
   transition: 2s;
   transform: scale(0.1);
 }
-[data-inviewport="scale-in"].is-inViewport { 
+[data-inviewport="scale-in"].is-inViewport {
   transform: scale(1);
 }
 
-[data-inviewport="fade-rotate"] { 
+[data-inviewport="fade-rotate"] {
   transition: 2s;
   opacity: 0;
 }
-[data-inviewport="fade-rotate"].is-inViewport { 
+[data-inviewport="fade-rotate"].is-inViewport {
   transform: rotate(180deg);
   opacity: 1;
 }
 
-[data-inviewport="slide-right"] { 
-	transition: 2s;
+[data-inviewport="slide-right"] {
+  transition: 2s;
   transform: translateX(100px);
 }
