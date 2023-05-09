@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="flex items-center justify-between  sticky pt-4 bg-[#1e293b] top-0 pb-2 z-[10] ">
+        <div className="flex items-center justify-between  sticky pt-4 bg-[#1e293b] top-0 pb-2 z-[10]  px-4 lg:px-16  ">
             <Logo />
             <div className={`md:hidden hamburger relative`}>
                 <RxHamburgerMenu
