@@ -17,7 +17,7 @@ const Navbar = () => {
           onClick={() => {
             setIsMenuHidden(false);
           }}
-          className={` ${
+          className={`${
             !isMenuHidden ? "opacity-0" : "opacity-1"
           } h-8 w-8 transform transition-transform duration-[1s] ease-in-out ${
             !isMenuHidden ? "-rotate-90" : "rotate-0"
@@ -37,7 +37,7 @@ const Navbar = () => {
       </div>
       <div
         className={`menu w-full bg-[#1c2431] overflow-hidden md:w-auto md:bg-transparent  ${
-          isMenuHidden ? "left-[100vh]" : "left-0"
+          isMenuHidden ? "left-[150vw]" : "left-0"
         } md:flex  rounded-lg md:border-none  absolute top-full   z-[5]  duration-700  md:sticky md:min-w-auto flex-col md:flex-row justify-between lg:items-center shrink-0 gap-8 lg:w-1/2`}
       >
         <NavItem

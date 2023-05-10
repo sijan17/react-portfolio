@@ -1,7 +1,7 @@
-import {useEffect , useState, useRef} from "react"
+import { useEffect, useState, useRef } from "react";
 
-export default function Text({children, before, after, duration, moreclass}){
-		const animatedDivRef = useRef(null);
+export default function Text({ children, before, after, duration, moreclass }) {
+  const animatedDivRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ export default function Text({children, before, after, duration, moreclass}){
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.5 } // Change this value as per your requirement
+      { threshold: 0.5 }
     );
 
     if (animatedDivRef.current) {
@@ -22,8 +22,14 @@ export default function Text({children, before, after, duration, moreclass}){
       }
     };
   }, []);
-	return (
-		<div ref={animatedDivRef} className={`${moreclass && moreclass} duration-[${duration}]  ${
-        isVisible ? after : before }`}>{children}</div>
-		);
+  return (
+    <div
+      ref={animatedDivRef}
+      className={`${moreclass && moreclass} duration-[${duration}]  ${
+        isVisible ? after : before
+      }`}
+    >
+      {children}
+    </div>
+  );
 }
